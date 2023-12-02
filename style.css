@@ -441,11 +441,12 @@ label {
 .profile-btn {
   margin-top: 2rem;
   padding: 0.8rem 2rem;
-  background-color: #d35f24;
+  border: 1px solid #d35f24;
+  border-color: #d35f24;
+  background-color: white;
   border-radius: 0.8rem;
   font-family: "Raleway";
   font-weight: 600;
-  border: none;
-  color: white;
+  color: #010a10;
   cursor: pointer;
 }
