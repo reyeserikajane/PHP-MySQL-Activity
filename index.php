@@ -10,7 +10,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Register - IeRepertoire</title>
+    <title>Login - IeRepertoire</title>
     <link
       rel="stylesheet"
       href="style.css"
@@ -22,53 +22,39 @@
         <div class="inner-box">
           <div class="forms-wrap">
             <form
-              action="index.html"
-              autocomplete="off"
+              action="includes/login.inc.php"
               class="sign-in-form"
+              method="post"
             >
               <div class="logo">
                 <img
                   src="./img/logo.png"
-                  alt="IeRepertoire"
+                  alt="easyclass"
                 />
                 <h4>IeRepertoire</h4>
               </div>
 
               <div class="heading">
-                <h2>Get Started</h2>
-                <p>Discover and read hundreds of books. Join IeRepertoire!</p>
+                <h2>Log In</h2>
+                <p>
+                  Welcome back! Enter your credentials to access your account.
+                </p>
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
                   <input
+                    name="emailOrUsername"
                     type="text"
                     class="input-field"
                     required
                   />
-                  <label>Name</label>
+                  <label>Email or username</label>
                 </div>
 
                 <div class="input-wrap">
                   <input
-                    type="text"
-                    class="input-field"
-                    required
-                  />
-                  <label>Username</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    type="email"
-                    class="input-field"
-                    required
-                  />
-                  <label>Email</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
+                    name="pwd"
                     type="password"
                     class="input-field"
                     required
@@ -76,25 +62,16 @@
                   <label>Password</label>
                 </div>
 
-                <div class="terms">
-                  <input type="checkbox" />
-                  <p>
-                    By signing up, I agree to the
-                    <span href="#">Terms of Services</span> and
-                    <span href="#">Privacy Policy</span>
-                  </p>
-                </div>
-
                 <button
                   type="submit"
                   class="sign-btn"
                 >
-                  Sign Up
+                  Login
                 </button>
 
                 <div class="new">
-                  <p>Already have an account?</p>
-                  <a href="index.html">Sign In</a>
+                  <p>New Here?</p>
+                  <a href="signup.php">Sign Up Here</a>
                 </div>
               </div>
             </form>
@@ -127,7 +104,6 @@
                   <h2>Enjoy our virtual bookshelf</h2>
                 </div>
               </div>
-
               <div class="bullets">
                 <span
                   class="active"
@@ -141,8 +117,9 @@
         </div>
       </div>
     </main>
-
+    
     <!-- Javascript file -->
+
 
     <script src="app.js"></script>
   </body>
