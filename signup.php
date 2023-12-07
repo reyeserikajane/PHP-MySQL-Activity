@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['full_name'])) {
+  // Redirect the user to another page
+  header("Location: ./profile.php");
+  exit(); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

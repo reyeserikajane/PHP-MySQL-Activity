@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = null;
         $stmt = null;
 
-        header("Location: ../index.html"); 
+        header("Location: ../index.php"); 
         die();
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
     }
 } else {
-    header("Location: ../index.html");
+    header("Location: ../index.php");
 }

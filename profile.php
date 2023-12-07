@@ -1,66 +1,57 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Profile - IeRepertoire</title>
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
-  </head>
-  <body>
-    <main>
-      <div class="box">
-        <div class="inner-box">
-          <div class="profile">
-            <img
-              src="img/banner.png"
-              class="profile-banner"
-            />
 
-            <img
-              src="img/sample.jpg"
-              class="profile-img"
-            />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - IeRepertoire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-            <div class="info">
-              <div class="info-wrap">
-                <p class="info-title">Name:</p>
-                <p class="info-content">Erika Jane Reyes</p>
-              </div>
+<body>
+  <main>
+    <div class="box">
+      <div class="inner-box">
+        <div class="profile">
+          <img src="img/banner.png" class="profile-banner" />
 
-              <div class="info-wrap">
-                <p class="info-title">Username:</p>
-                <p class="info-content">Erika Jane Reyes</p>
-              </div>
+          <img src="img/no-profile.webp" class="profile-img" />
 
-              <div class="info-wrap">
-                <p class="info-title">Email:</p>
-                <p class="info-content">Erika Jane Reyes</p>
-              </div>
+          <div class="info">
+            <div class="info-wrap">
+              <p class="info-title">Name:</p>
+              <p class="info-content"><?php echo $_SESSION["full_name"] ?></p>
+            </div>
 
-              <div class="info-wrap">
+            <div class="info-wrap">
+              <p class="info-title">Username:</p>
+              <p class="info-content"><?php echo $_SESSION["username"] ?></p>
+            </div>
+
+            <div class="info-wrap">
+              <p class="info-title">Email:</p>
+              <p class="info-content"><?php echo $_SESSION["email"] ?></p>
+            </div>
+
+            <!-- <div class="info-wrap">
                 <p class="info-title">Password:</p>
                 <p class="info-content">hello</p>
               </div>
-            </div>
+            </div> -->
 
             <button class="profile-btn">Edit Profile</button>
           </div>
         </div>
       </div>
-    </main>
+  </main>
 
-    <!-- Javascript file -->
+  <!-- Javascript file -->
 
-    <script src="app.js"></script>
-  </body>
+  <script src="app.js"></script>
+</body>
+
 </html>

@@ -6,30 +6,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     try {
-       require_once 'dbh.inc.php';
+        require_once 'dbh.inc.php';
+        $result = check_username($pdo, $username);
+        if($result){
+            check_pass($pwd, $result);
+        } else {
+            header("Location: ../index.php");
+        }
         
-       $result = check_username($pdo, $username);
-
-       
-       
-       
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
     }
 } else {
-    header("Location: ../index.html");
+    header("Location: ../index.php");
 }
 
-function check_username(object $pdo, string $username){
-    
-        $query = "SELECT * FROM user WHERE userName = :username";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(":username", $username);
-        $stmt->execute();
+function check_username(object $pdo, string $username)
+{
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $query = "SELECT * FROM user WHERE userName = :username OR email = :email";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":username", $username);
+    $stmt->bindParam(":email", $username);
+    $stmt->execute();
 
-        return $result;
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    return $result;
 }
 
+function check_pass(string $pwd, array $result)
+{
+    if (password_verify($pwd, $result["password"])) {
+        echo "Password Match";
+        session_start();
+        $_SESSION["full_name"] = $result["full_name"];
+        $_SESSION["username"] = $result["username"];
+        $_SESSION["email"] = $result["email"];
+        header("Location: ../profile.php");
+        exit();
+    } else {
+        echo "Wrong Password or User not existing";
+        header("Location: ../index.php");
+        exit();
+    }
+}
