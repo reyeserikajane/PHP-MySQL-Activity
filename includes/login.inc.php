@@ -44,6 +44,7 @@ function check_pass(string $pwd, array $result)
         $_SESSION["username"] = $result["username"];
         $_SESSION["email"] = $result["email"];
         header("Location: ../profile.php");
+        session_write_close();
         exit();
     } else {
         echo "Wrong Password or User not existing";
