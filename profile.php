@@ -42,8 +42,13 @@ session_start();
                 <p class="info-content">hello</p>
               </div>
             </div> -->
+            
 
+            </div>
+
+            <div class="info-wrap">
             <button class="profile-btn">Edit Profile</button>
+            <button class="profile-btn">Logout</button>
           </div>
         </div>
       </div>
