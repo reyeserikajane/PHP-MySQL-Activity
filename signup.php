@@ -70,6 +70,8 @@ if (isset($_SESSION['full_name'])) {
                 </div>
 
                 <div class="input-wrap">
+                  <!-- Write a condition that will show this validation popup only if email address provided is in the wrong format -->
+                  <div class="validation-popup">Please provide a valid email address.</div>
                   <input
                     name="email"
                     type="email"
@@ -78,6 +80,8 @@ if (isset($_SESSION['full_name'])) {
                   />
                   <label>Email</label>
                 </div>
+
+           
 
                 <div class="input-wrap">
                   <input
@@ -88,6 +92,8 @@ if (isset($_SESSION['full_name'])) {
                   />
                   <label>Password</label>
                 </div>
+
+                
 
                 <div class="terms">
                   <input type="checkbox" required/>
@@ -150,6 +156,18 @@ if (isset($_SESSION['full_name'])) {
                 <span data-value="3"></span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Write a condition that this will only show if the user provided an email that is already used -->
+      <div class="popup" id="popup" style="">
+        <div class="popup-content">
+          <p>Email is already registered. Do you want to sign in instead?</p>
+
+          <div class="flex-gap">
+            <button class="profile-btn" onclick="location.href='index.php'">Sign In</button>
+            <button class="profile-btn" onclick="closePopup()">Close</button>       
           </div>
         </div>
       </div>

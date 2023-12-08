@@ -63,6 +63,8 @@ if (isset($_SESSION['full_name'])) {
                 </div>
 
                 <div class="input-wrap">
+                   <!-- Write a condition that will show this validation popup only if email or username is found but password entered is wrong-->
+                   <div class="validation-popup">Wrong password!</div>
                   <input
                     name="pwd"
                     type="password"
@@ -123,6 +125,18 @@ if (isset($_SESSION['full_name'])) {
                 <span data-value="3"></span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Write a condition that this will only show if email is not found -->
+       <div class="po2pup" id="popup" style="">
+        <div class="popup-content">
+          <p>Account not found. Do you want to register instead?</p>
+
+          <div class="flex-gap">
+            <button class="profile-btn" onclick="location.href='index.php'">Register</button>
+            <button class="profile-btn" onclick="closePopup()">Close</button>       
           </div>
         </div>
       </div>
