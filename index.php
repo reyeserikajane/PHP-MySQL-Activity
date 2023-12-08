@@ -25,6 +25,8 @@ if (isset($_SESSION['full_name'])) {
       rel="stylesheet"
       href="style.css"
     />
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+
   </head>
   <body>
     <main>
