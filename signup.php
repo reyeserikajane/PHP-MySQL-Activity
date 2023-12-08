@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['full_name'])) {
-  // Redirect the user to another page
-  header("Location: ./profile.php");
-  exit(); 
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +15,7 @@ if (isset($_SESSION['full_name'])) {
       rel="stylesheet"
       href="style.css"
     />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
   <body>
     <main>
