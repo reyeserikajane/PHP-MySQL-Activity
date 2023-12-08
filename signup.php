@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  if (isset($_SESSION['full_name'])) {
+    // Redirect the user to another page
+    header("Location: ./profile.php");
+    exit();
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,10 +63,17 @@
                 </div>
 
                 <div class="input-wrap">
+                <?php
+                    if(isset($_SESSION['username_validation'])){
+                      echo "<div class='validation-popup'>Username is already existing</div>";
+                      unset($_SESSION['username_validation']);
+                    }
+                  ?>
                   <input
                     name="username"
                     type="text"
                     class="input-field"
+                    id="UN"
                     required
                   />
                   <label>Username</label>
@@ -64,11 +81,17 @@
 
                 <div class="input-wrap">
                   <!-- Write a condition that will show this validation popup only if email address provided is in the wrong format -->
-                  <div class="validation-popup">Please provide a valid email address.</div>
+                  <?php
+                    if(isset($_SESSION['email_validation'])){
+                      echo "<div class='validation-popup'>Email is already existing</div>";
+                      unset($_SESSION['email_validation']);
+                    }
+                  ?>
                   <input
                     name="email"
                     type="email"
                     class="input-field"
+                    id="EM"
                     required
                   />
                   <label>Email</label>

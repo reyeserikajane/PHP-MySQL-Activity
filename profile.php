@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['full_name'])){
+  header("Location: index.php");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +53,7 @@ session_start();
 
             <div class="info-wrap">
             <button class="profile-btn">Edit Profile</button>
-            <button class="profile-btn">Logout</button>
+            <button class="profile-btn" id="logout">Logout</button>
           </div>
         </div>
       </div>
@@ -58,6 +62,8 @@ session_start();
   <!-- Javascript file -->
 
   <script src="app.js"></script>
+  <script src="public/js/logout.js"></script>
+
 </body>
 
 </html>

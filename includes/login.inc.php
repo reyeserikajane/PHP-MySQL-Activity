@@ -11,6 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($result){
             check_pass($pwd, $result);
         } else {
+            session_start();
+            $_SESSION['isExisting'] = false;
+            session_write_close();
             header("Location: ../index.php");
         }
         
@@ -24,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function check_username(object $pdo, string $username)
 {
 
-    $query = "SELECT * FROM user WHERE userName = :username OR email = :email";
+    $query = "SELECT * FROM user WHERE username = :username OR email = :email";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":email", $username);
@@ -48,6 +51,9 @@ function check_pass(string $pwd, array $result)
         exit();
     } else {
         echo "Wrong Password or User not existing";
+        session_start();
+        $_SESSION["pwd-validation"] = false;
+        session_write_close();
         header("Location: ../index.php");
         exit();
     }
