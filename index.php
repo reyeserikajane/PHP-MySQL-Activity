@@ -130,7 +130,7 @@ if (isset($_SESSION['full_name'])) {
       </div>
 
        <!-- Write a condition that this will only show if email is not found -->
-       <div class="po2pup" id="popup" style="">
+       <div class="popup" id="popup" style="">
         <div class="popup-content">
           <p>Account not found. Do you want to register instead?</p>
 
